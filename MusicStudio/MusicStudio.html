@@ -1,0 +1,215 @@
+<head>
+<title>Music Studio</title>
+</head>
+<body>
+<div style="top: 50px; text-align:center">
+
+<h2>Arranger</h2>
+<p>
+<button onclick="synth.play(1), sample.play(1)">Play Arrangement</button>
+Tempo:<input type="number" name="bpm" min="60" max="200" step="5" value="120" oninput="synth.setBPM(this), sample.setBPM(this)">
+</p>
+<p>
+<input type="number" name="arr1" min="1" max="4" step="1" value="1" oninput="synth.setSeq1(this);">
+<input type="number" name="arr2" min="1" max="4" step="1" value="1" oninput="synth.setSeq2(this);">
+<input type="number" name="arr3" min="1" max="4" step="1" value="1" oninput="synth.setSeq3(this);">
+<input type="number" name="arr4" min="1" max="4" step="1" value="1" oninput="synth.setSeq4(this);">
+</p>
+
+<h2>Sequencer</h2>
+<div>
+Key:<input id="root" type="range" min="0" max="12" step="1" value="0" onchange="synth.setRoot(this);">
+</div>
+<div>
+<input type="radio" name="scale" value="1" checked="" onclick="synth.setScale(0)">Major</input>
+<input type="radio" name="scale" value="2" onclick="synth.setScale(1)">Minor</input>
+</div>
+<p>
+<button onclick="synth.play(0)">Preview</button>
+</p>
+<P>
+<button onclick="synth.generateSequence()">Random Sequence</button>
+</P>
+<p>
+<button onclick="synth.saveSeq()">Save to</button>
+<input type="number" name="save" min="1" max="4" step="1" value="1" oninput="synth.setSaveSeq(this);">
+</p>
+
+<h2>Synth</h2>
+<img src="IMG_0540.PNG">
+<p>
+Note Length:<input id="noteLength" type="range" min="0.05" max="1" step="0.05" value="0.5" onchange="synth.setNoteLength(this);">
+</p>
+<h4>VCO 1:</h4>
+<input type="radio" name ="ir2" value="0" class="effect" checked="" onclick="synth.changeType('sine')">Sine
+<input type="radio" name ="ir2" value="1" class="effect" onclick="synth.changeType('square')">Square
+<input type="radio" name ="ir2" value="2" class="effect" onclick="synth.changeType('sawtooth')">Sawtooth
+<input type="radio" name ="ir2" value="3" class="effect" onclick="synth.changeType('triangle')">Triangle
+<p>
+Octave:<input id="octave" type="range" min="-12" max="24" step="12" value="0" onchange="synth.setOctave(this);">
+</p>
+<p>
+<h4>VCO 2:</h4>
+<input type="radio" name ="ir22" value="0" class="effect" checked="" onclick="synth.changeType2('sine')">Sine
+<input type="radio" name ="ir22" value="1" class="effect" onclick="synth.changeType2('square')">Square
+<input type="radio" name ="ir22" value="2" class="effect" onclick="synth.changeType2('sawtooth')">Sawtooth
+<input type="radio" name ="ir22" value="3" class="effect" onclick="synth.changeType2('triangle')">Triangle
+</p>
+<p>
+Detune:<input id="detune" type="range" min="-100" max="100" step="1" value="0" onchange="synth.setDetune(this);">
+</p>
+<p>
+Vol:<input id="vol" type="range" min="0" max="1" step="0.1" value="1" onchange="synth.setOsc2vol(this);">
+</p>
+<p>
+<h4>Filter:</h4>
+<input type="radio" name ="ir3" value="0" class="effect" checked="" onclick="synth.setFilter('lowpass')">Low Pass
+<input type="radio" name ="ir3" value="1" class="effect" onclick="synth.setFilter('highpass')">High Pass
+<input type="radio" name ="ir3" value="2" class="effect" onclick="synth.setFilter('bandpass')">Band Pass
+</p>
+<p>
+Cutoff Frequency:
+<input id="freq" type="range" min="20" max="20000" step="10" value="18000" onchange="synth.setCutoff(this);">
+</p>
+<p>
+Resonance:
+<input id="res" type="range" min="1" max="80" step="10" value="1" onchange="synth.setQ(this);">
+</p>
+<h3>Bass:</h3>
+<p>
+Note Length:<input id="noteLengthbass" type="range" min="0.05" max="1" step="0.05" value="0.5" onchange="synth.setBassNoteLength(this);">
+</p>
+<p>
+<input type="radio" name ="bss" value="0" class="effect" checked="" onclick="synth.changeType3('sine')">Sine
+<input type="radio" name ="bss" value="1" class="effect" onclick="synth.changeType3('square')">Square
+<input type="radio" name ="bss" value="2" class="effect" onclick="synth.changeType3('sawtooth')">Sawtooth
+</p>
+<p>
+Bit Crusher:
+<input type="radio" name ="fx1" value="0" class="effect" checked="" onclick="synth.setFX2(0)">Off
+<input type="radio" name ="fx1" value="1" class="effect" onclick="synth.setFX2(1)">On
+</p>
+
+
+<h2>Sampler</h2>
+<p>
+<img src="IMG_0528.GIF">
+</p>
+<p>
+Chord Sample:
+<input type="radio" name="chord" value="1" checked="" onclick="synth.setChordSample(0)">1</input>
+<input type="radio" name="chord" value="2" onclick="synth.setChordSample(1)">2</input>
+<input type="radio" name="chord" value="3" onclick="synth.setChordSample(2)">3</input>
+</p>
+<p>
+Noise Convoler:
+<input type="radio" name ="fx" value="0" class="effect" checked="" onclick="synth.setFX(0)">Off
+<input type="radio" name ="fx" value="1" class="effect" onclick="synth.setFX(1)">On
+</p>
+
+<h2>Drum Machine</h2>
+<p>
+<img src="IMG_0557.PNG">
+</p>
+<p>
+<input type="button" onclick="sample.play(0);" value="Preview">
+<div>
+Kick Pattern:
+</div>
+<input type="radio" name="kick" value="1" checked="" onclick="sample.kickPattern(0)">1</input>
+<input type="radio" name="kick" value="2" onclick="sample.kickPattern(1)">2</input>
+<input type="radio" name="kick" value="3" onclick="sample.kickPattern(2)">3</input>
+<input type="radio" name="kick" value="4" onclick="sample.kickPattern(3)">4</input>
+<input type="radio" name="kick" value="5" onclick="sample.kickPattern(4)">5</input>
+<input type="radio" name="kick" value="6" onclick="sample.kickPattern(5)">6</input>
+<div>
+Snare Pattern:
+</div>
+<input type="radio" name="snare" value="1" checked="" onclick="sample.snarePattern(0)">1</input>
+<input type="radio" name="snare" value="2" onclick="sample.snarePattern(1)">2</input>
+<input type="radio" name="snare" value="3" onclick="sample.snarePattern(2)">3</input>
+<input type="radio" name="snare" value="4" onclick="sample.snarePattern(3)">4</input>
+<input type="radio" name="snare" value="5" onclick="sample.snarePattern(4)">5</input>
+<input type="radio" name="snare" value="6" onclick="sample.snarePattern(5)">6</input>
+<div>
+Hi-Hat Pattern:
+</div>
+<input type="radio" name="hihat" value="1" checked="" onclick="sample.hihatPattern(0)">1</input>
+<input type="radio" name="hihat" value="2" onclick="sample.hihatPattern(1)">2</input>
+<input type="radio" name="hihat" value="3" onclick="sample.hihatPattern(2)">3</input>
+<input type="radio" name="hihat" value="4" onclick="sample.hihatPattern(3)">4</input>
+<input type="radio" name="hihat" value="5" onclick="sample.hihatPattern(4)">5</input>
+<input type="radio" name="hihat" value="6" onclick="sample.hihatPattern(5)">6</input>
+</p>
+
+
+
+<h2>Sample Pads</h2>
+<p>
+<img src="IMG_0488.PNG">
+</p>
+<div>
+<input type="button" onclick="myDrums.play(1);" value="1 ">
+<input type="button" onclick="myDrums.play(2);" value="2 ">
+<input type="button" onclick="myDrums.play(3);" value="3 ">
+<input type="button" onclick="myDrums.play(4);" value="4 ">
+</div>
+<div>
+<input type="button" onclick="myDrums.play(5);" value="5 ">
+<input type="button" onclick="myDrums.play(6);" value="6 ">
+<input type="button" onclick="myDrums.play(7);" value="7 ">
+<input type="button" onclick="myDrums.play(8);" value="8 ">
+</div>
+<div>
+<input type="button" onclick="myDrums.play(9);" value="9 ">
+<input type="button" onclick="myDrums.play(10);" value="10">
+<input type="button" onclick="myDrums.play(11);" value="11">
+<input type="button" onclick="myDrums.play(12);" value="12">
+</div>
+<div>
+<input type="button" onclick="myDrums.play(13);" value="13">
+<input type="button" onclick="myDrums.play(14);" value="14">
+<input type="button" onclick="myDrums.play(15);" value="15">
+<input type="button" onclick="myDrums.play(16);" value="16">
+</div>
+<p>
+Sample:<input type="number" name="samp" min="1" max="16" value="1" oninput="myDrums.selectSample(this);">
+</p>
+<p>
+Pitch:<input type="range" min="-12" max="12" step="1" value="0" onchange="myDrums.setPitch(this);">
+</p>
+<p>
+Vol:<input type="range" min="0" max="1" step="0.05" value="0.5" onchange="myDrums.setVol(this);">
+</p>
+
+<h2>Mixer</h2>
+<p>
+<img src="IMG_0532.GIF">
+</p>
+<p>
+Sample Pads:<input type="range" min="0" max="1" value="0.9" step="0.05" onchange="myDrums.setMasterVol(this);">
+</p>
+<P>
+Melody:<input id="vol" type="range" min="0" max="1" step="0.1" value="1" onchange="synth.setMelodyVol(this);">
+</P>
+<P>
+Harmony:<input id="vol" type="range" min="0" max="1" step="0.1" value="1" onchange="synth.setHarmonyVol(this);">
+</P>
+<P>
+Bass:<input id="vol" type="range" min="0" max="1" step="0.1" value="1" onchange="synth.setBassVol(this);">
+</P>
+<P>
+Sequencer:<input id="vol" type="range" min="0" max="1" step="0.1" value="0.5" onchange="synth.setVol(this);">
+</P>
+
+<script src="drumMachine.js"></script>
+<script src="shared.js"></script>
+<script src="DrumPads.js"></script>
+<script src="SynthSequence.js"></script>
+<script>
+var synth = new Synthesizer();
+var sample = new RhythmComputer();
+var myDrums = new DrumSample();
+</script>
+
+</body>
