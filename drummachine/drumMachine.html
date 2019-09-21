@@ -1,0 +1,51 @@
+<head>
+<title>Music Studio</title>
+</head>
+<body>
+<div style="top: 50px; text-align:center">
+<h2>Drum Machine</h2>
+<p>
+<img src="IMG_0557.PNG">
+</p>
+<p>
+<input type="button" onclick="sample.play();" value="Play">
+<p>
+Tempo:<input type="number" name="bpm" min="60" max="200" step="5" value="120" oninput="sample.setBPM(this);">
+</p>
+<p>
+Bars:<input type="number" name="bpm" min="1" max="8" value="2" oninput="sample.setBars(this);">
+</p>
+<div>
+Kick Pattern:
+</div>
+<input type="radio" name="kick" value="1" checked="" onclick="sample.kickPattern(0)">1</input>
+<input type="radio" name="kick" value="2" onclick="sample.kickPattern(1)">2</input>
+<input type="radio" name="kick" value="3" onclick="sample.kickPattern(2)">3</input>
+<input type="radio" name="kick" value="4" onclick="sample.kickPattern(3)">4</input>
+<input type="radio" name="kick" value="5" onclick="sample.kickPattern(4)">5</input>
+<input type="radio" name="kick" value="6" onclick="sample.kickPattern(5)">6</input>
+<div>
+Snare Pattern:
+</div>
+<input type="radio" name="snare" value="1" checked="" onclick="sample.snarePattern(0)">1</input>
+<input type="radio" name="snare" value="2" onclick="sample.snarePattern(1)">2</input>
+<input type="radio" name="snare" value="3" onclick="sample.snarePattern(2)">3</input>
+<input type="radio" name="snare" value="4" onclick="sample.snarePattern(3)">4</input>
+<input type="radio" name="snare" value="5" onclick="sample.snarePattern(4)">5</input>
+<input type="radio" name="snare" value="6" onclick="sample.snarePattern(5)">6</input>
+<div>
+Hi-Hat Pattern:
+</div>
+<input type="radio" name="hihat" value="1" checked="" onclick="sample.hihatPattern(0)">1</input>
+<input type="radio" name="hihat" value="2" onclick="sample.hihatPattern(1)">2</input>
+<input type="radio" name="hihat" value="3" onclick="sample.hihatPattern(2)">3</input>
+<input type="radio" name="hihat" value="4" onclick="sample.hihatPattern(3)">4</input>
+<input type="radio" name="hihat" value="5" onclick="sample.hihatPattern(4)">5</input>
+<input type="radio" name="hihat" value="6" onclick="sample.hihatPattern(5)">6</input>
+</p>
+<script src="drumMachine.js"></script>
+<script src="shared.js"></script>
+<script>
+var sample = new RhythmComputer();
+</script>
+</body>

@@ -1,0 +1,31 @@
+<!doctype html>
+<head>
+<title>Sampler</title>
+</head>
+<body>
+<div style="top: 50px; text-align:center">
+<h2>Sampler</h2>
+<p>
+<img src="IMG_0528.GIF">
+</p>
+<p>
+Root Pitch:<input type="range" min="1" max="12" value="1" onchange="sample.setRoot(this);">
+</p>
+<div>
+<input type="radio" name="scale" value="1" checked="" onclick="sample.changeScale(1)">Major</input>
+<input type="radio" name="scale" value="2" onclick="sample.changeScale(2)">Minor</input>
+</div>
+<p>
+<div>
+Tempo:<input type="number" name="bpm" min="60" max="200" step="5" value="120" onchange="sample.setBPM(this);">
+</div>
+</p>
+<p>
+<input type="button" onclick="sample.play();" value="Play">
+</p>
+<script src="shared.js"></script>
+<script src="Sampler.js"></script>
+<script>
+var sample = new Sampler();
+</script>
+</body>

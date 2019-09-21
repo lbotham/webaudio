@@ -1,0 +1,49 @@
+<!doctype html>
+<head>
+<title>Drum Pads</title>
+</head>
+<body>
+<div style="top: 50px; text-align:center">
+<h2>Drum Pads</h2>
+<p>
+<img src="IMG_0488.PNG">
+</p>
+<div>
+<input type="button" onclick="myDrums.play(1);" value="1 ">
+<input type="button" onclick="myDrums.play(2);" value="2 ">
+<input type="button" onclick="myDrums.play(3);" value="3 ">
+<input type="button" onclick="myDrums.play(4);" value="4 ">
+</div>
+<div>
+<input type="button" onclick="myDrums.play(5);" value="5 ">
+<input type="button" onclick="myDrums.play(6);" value="6 ">
+<input type="button" onclick="myDrums.play(7);" value="7 ">
+<input type="button" onclick="myDrums.play(8);" value="8 ">
+</div>
+<div>
+<input type="button" onclick="myDrums.play(9);" value="9 ">
+<input type="button" onclick="myDrums.play(10);" value="10">
+<input type="button" onclick="myDrums.play(11);" value="11">
+<input type="button" onclick="myDrums.play(12);" value="12">
+</div>
+<div>
+<input type="button" onclick="myDrums.play(13);" value="13">
+<input type="button" onclick="myDrums.play(14);" value="14">
+<input type="button" onclick="myDrums.play(15);" value="15">
+<input type="button" onclick="myDrums.play(16);" value="16">
+</div>
+<p>
+Sample:<input type="number" name="samp" min="1" max="16" value="1" oninput="myDrums.selectSample(this);">
+</p>
+<p>
+Pitch:<input type="range" min="-12" max="12" step="1" value="0" onchange="myDrums.setPitch(this);">
+</p>
+<p>
+Vol:<input type="range" min="0" max="1" step="0.05" value="0.5" onchange="myDrums.setVol(this);">
+</p>
+<script src="shared.js"></script>
+<script src="DrumPads.js"></script>
+<script>
+var myDrums = new DrumSample();
+</script>
+</body>
